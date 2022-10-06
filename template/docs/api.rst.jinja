@@ -1,0 +1,99 @@
+API
+===
+
+This part of the documentation lists the full API reference of all classes and functions.
+
+WSGI
+----
+
+.. autoclass:: {{package_name}}.wsgi.ApplicationLoader
+   :members:
+   :show-inheritance:
+
+Config
+------
+
+.. automodule:: {{package_name}}.config
+
+.. autoclass:: {{package_name}}.config.application.Application
+   :members:
+   :show-inheritance:
+
+.. autoclass:: {{package_name}}.config.redis.Redis
+   :members:
+   :show-inheritance:
+
+.. automodule:: {{package_name}}.config.gunicorn
+
+CLI
+---
+
+.. automodule:: {{package_name}}.cli
+
+.. autofunction:: {{package_name}}.cli.cli.cli
+
+.. autofunction:: {{package_name}}.cli.utils.validate_directory
+
+.. autofunction:: {{package_name}}.cli.serve.serve
+
+App
+---
+
+.. automodule:: {{package_name}}.app
+
+.. autofunction:: {{package_name}}.app.asgi.on_startup
+
+.. autofunction:: {{package_name}}.app.asgi.on_shutdown
+
+.. autofunction:: {{package_name}}.app.asgi.get_application
+
+.. automodule:: {{package_name}}.app.router
+
+Controllers
+~~~~~~~~~~~
+
+.. automodule:: {{package_name}}.app.controllers
+
+.. autofunction:: {{package_name}}.app.controllers.ready.readiness_check
+
+Models
+~~~~~~
+
+.. automodule:: {{package_name}}.app.models
+
+Views
+~~~~~
+
+.. automodule:: {{package_name}}.app.views
+
+.. autoclass:: {{package_name}}.app.views.error.ErrorModel
+   :members:
+   :show-inheritance:
+
+.. autoclass:: {{package_name}}.app.views.error.ErrorResponse
+   :members:
+   :show-inheritance:
+
+Exceptions
+~~~~~~~~~~
+
+.. automodule:: {{package_name}}.app.exceptions
+
+.. autoclass:: {{package_name}}.app.exceptions.http.HTTPException
+   :members:
+   :show-inheritance:
+
+.. autofunction:: {{package_name}}.app.exceptions.http.http_exception_handler
+
+Utils
+~~~~~
+
+.. automodule:: {{package_name}}.app.utils
+
+.. autoclass:: {{package_name}}.app.utils.aiohttp_client.AiohttpClient
+   :members:
+   :show-inheritance:
+
+.. autoclass:: {{package_name}}.app.utils.redis.RedisClient
+   :members:
+   :show-inheritance:

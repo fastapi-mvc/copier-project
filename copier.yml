@@ -1,0 +1,120 @@
+# TEMPLATE SETTINGS
+_subdirectory: template
+_templates_suffix: .jinja
+_min_copier_version: "6.2.0"
+_answers_file: .fastapi-mvc.yml
+_envops:
+  block_end_string: "%}"
+  block_start_string: "{%"
+  comment_end_string: "#}"
+  comment_start_string: "{#"
+  keep_trailing_newline: true
+  variable_end_string: "}}"
+  variable_start_string: "{{"
+
+_tasks:
+  - "ln -srf CHANGELOG.md docs/CHANGELOG.md "
+
+# TEMPLATE QUESTIONS
+project_name:
+  type: str
+  help: >-
+    What's your project name?
+    
+    Do not use dots or spaces in the name; just "A-Za-z0-9-_" please.
+
+repo_url:
+  type: str
+  help: What is the project repository URL?
+
+container_image_name:
+  type: str
+  help: What is the project container image name?
+  default: "{{ project_name|lower|replace(' ','_') }}"
+
+script_name:
+  type: str
+  help: What is the project CLI entrypoint name?
+  default: "{{ project_name|lower|replace(' ','_') }}"
+
+chart_name:
+  type: str
+  help: What is the project Helm chart name?
+  default: "{{ project_name|lower|replace(' ','-') }}"
+
+author:
+  type: str
+  help: Tell me who you are.
+  default: "John Doe"
+
+email:
+  type: str
+  help: Tell me your email.
+  default: "example@mail.com"
+
+project_description:
+  type: str
+  help: What is the project description?
+  default: "This project was generated with fastapi-mvc."
+
+version:
+  type: str
+  help: What is the project initial version?
+  default: "0.1.0"
+
+redis:
+  type: bool
+  help: Do you want to include Redis utilities and Kubernetes deployment?
+  default: yes
+
+helm:
+  type: bool
+  help: Do you want to include Helm chart for the project?
+  default: yes
+
+github_actions:
+  type: bool
+  help: Do you want to include GitHub actions?
+  default: yes
+
+nix:
+  type: bool
+  help: Do you want to include Nix expression files?
+  default: yes
+
+aiohttp:
+  type: bool
+  help: Do you want to include aiohttp utility?
+  default: yes
+
+license:
+  type: str
+  help: What is your project license?
+  choices:
+    - "MIT"
+    - "BSD2"
+    - "BSD3"
+    - "ISC"
+    - "Apache2.0"
+    - "LGPLv3+"
+    - "LGPLv3"
+    - "LGPLv2+"
+    - "LGPLv2"
+    - "no"
+
+copyright_date:
+  type: str
+  help: What is your project copyright date?
+  when: "{% if license != 'no' %}true{% else %}false{% endif %}"
+  default: "2022"
+
+# TEMPLATE NONE-CONFIGURABLE DEFAULTS
+package_name:
+  type: str
+  default: "{{ project_name|lower|replace(' ','_')|replace('-','_') }}"
+  when: false
+
+fastapi_mvc_version:
+  type: str
+  default: "Generated manually"
+  when: false

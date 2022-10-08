@@ -45,6 +45,11 @@ integration-test: install  ## Run {{project_name}} integration tests
 	echo "[nix][integration-test] Run {{project_name}} unit tests."
 	result/bin/pytest tests/integration
 
+.PHONY: coverage
+coverage: install  ## Run {{project_name}} tests coverage
+	echo "[nix][coverage] Run {{project_name}} tests coverage."
+	result/bin/pytest --cov-config=.coveragerc --cov={{package_name}} --cov-fail-under=90 --cov-report=xml --cov-report=term-missing tests
+
 .PHONY: test
-test: unit-test integration-test ## Run {{project_name}} tests
+test: unit-test integration-test coverage  ## Run {{project_name}} tests
 

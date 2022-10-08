@@ -40,8 +40,13 @@ integration-test: install ## Run {{project_name}} integration tests
 	echo "[unit-test] Run {{project_name}} integration tests."
 	${POETRY_BINARY} run pytest tests/integration
 
+.PHONY: coverage
+coverage: install  ## Run {{project_name}} tests coverage
+	echo "[coverage] Run {{project_name}} tests coverage."
+	${POETRY_BINARY} run pytest --cov-config=.coveragerc --cov={{package_name}} --cov-fail-under=90 --cov-report=xml --cov-report=term-missing tests
+
 .PHONY: test
-test: unit-test integration-test ## Run {{project_name}} tests
+test: unit-test integration-test coverage  ## Run {{project_name}} tests
 
 .PHONY: docs
 docs: install ## Build {{project_name}} documentation

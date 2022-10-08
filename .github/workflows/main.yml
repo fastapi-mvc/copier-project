@@ -9,6 +9,7 @@ on:
       - 'copier.yml'
       - 'generate.sh'
       - '.github/workflows/**'
+      - 'monkeypatch.py'
   pull_request:
     branches:
       - master
@@ -17,6 +18,7 @@ on:
       - 'copier.yml'
       - 'generate.sh'
       - '.github/workflows/**'
+      - 'monkeypatch.py'
 
 jobs:
   # This job checks if an identical workflow is being triggered by different

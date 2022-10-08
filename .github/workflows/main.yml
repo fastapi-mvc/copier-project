@@ -8,6 +8,7 @@ on:
       - 'template/**'
       - 'copier.yml'
       - 'generate.sh'
+      - '.github/workflows/**'
   pull_request:
     branches:
       - master
@@ -15,6 +16,7 @@ on:
       - 'template/**'
       - 'copier.yml'
       - 'generate.sh'
+      - '.github/workflows/**'
 
 jobs:
   # This job checks if an identical workflow is being triggered by different

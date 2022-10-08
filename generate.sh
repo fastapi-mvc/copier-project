@@ -17,4 +17,4 @@ copier -d project_name=example \
   -d repo_url=https://github.com/fastapi-mvc/example \
   -d version=0.1.0 \
   -d fastapi_mvc_version="Generated from CI" \
-  copy . example
+  copy . ./example

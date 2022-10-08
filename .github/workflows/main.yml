@@ -1,0 +1,104 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - 'template/**'
+      - 'copier.yml'
+      - 'generate.sh'
+  pull_request:
+    branches:
+      - master
+    paths:
+      - 'template/**'
+      - 'copier.yml'
+      - 'generate.sh'
+
+jobs:
+  # This job checks if an identical workflow is being triggered by different
+  # event and skips it. For instance there is no need to run the same pipeline
+  # twice for pull_request and push for identical commit sha.
+  pre_job:
+    runs-on: ubuntu-latest
+    outputs:
+      should_skip: ${{ steps.skip_check.outputs.should_skip }}
+    steps:
+      - id: skip_check
+        uses: fkirc/skip-duplicate-actions@v3.4.1
+        with:
+          skip_after_successful_duplicate: 'true'
+          concurrent_skipping: same_content
+          do_not_skip: '["pull_request", "workflow_dispatch", "schedule"]'
+  generate:
+    needs: pre_job
+    if: ${{ needs.pre_job.outputs.should_skip != 'true' }}
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Install Nix ❄️
+        uses: cachix/install-nix-action@v17
+        with:
+          nix_path: nixpkgs=channel:nixos-22.05
+      - name: Setup Cachix ❄️
+        uses: cachix/cachix-action@v10
+        with:
+          name: fastapi-mvc
+          authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
+      - name: Generate test project
+        run: nix-shell shell.nix --run "./generate.sh"
+      - name: Apply monkeypatch
+        run: nix-shell -p python3 --run "python monkeypatch.py example/.github/workflows/main.yml example/.github/workflows/nix.yml example/.github/workflows/docs.yml"
+      - name: Setup poetry.lock cache
+        uses: actions/cache@v3
+        id: lock-cache
+        with:
+          path: ./example/poetry.lock
+          key: ${{ hashFiles('**/pyproject.toml') }}
+      - name: Generate poetry.lock
+        if: steps.lock-cache.outputs.cache-hit != 'true'
+        working-directory: ./example
+        run: nix-shell -p poetry --run "poetry lock --no-update"
+      - name: Set short commit SHA
+        run: echo "SHORT_SHA=${GITHUB_SHA::7}" >> $GITHUB_ENV
+      - name: Push generated test project
+        uses: cpina/github-action-push-to-another-repository@main
+        env:
+          API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
+        with:
+          source-directory: ./example
+          destination-github-username: 'fastapi-mvc'
+          destination-repository-name: 'example'
+          user-name: "github-actions[bot]"
+          user-email: github-actions[bot]@users.noreply.github.com
+          commit-message: ${{ format('[skip ci][fastapi-mvc/copier-project@{0}] CI update', env.SHORT_SHA) }}
+          target-branch: master
+  dispatch-remote-workflow:
+    needs: generate
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        workflow: [ 'main.yml',  'docs.yml', 'nix.yml']
+
+    steps:
+      - name: Dispatch ${{ matrix.workflow }} workflow
+        uses: codex-/return-dispatch@v1
+        id: return_dispatch
+        with:
+          token: ${{ secrets.API_TOKEN_GITHUB }}
+          repo: example
+          owner: fastapi-mvc
+          ref: master
+          workflow: ${{ matrix.workflow }}
+      - name: Await dispatched workflow
+        uses: Codex-/await-remote-run@v1
+        with:
+          token: ${{ secrets.API_TOKEN_GITHUB }}
+          repo: example
+          owner: fastapi-mvc
+          run_id: ${{ steps.return_dispatch.outputs.run_id }}
+          run_timeout_seconds: 1200
+          poll_interval_ms: 5000

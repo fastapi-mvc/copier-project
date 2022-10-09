@@ -1,0 +1,9 @@
+# Changes here will be overwritten by Copier
+_commit: 3c38a44
+_src_path: https://github.com/fastapi-mvc/copier-generator
+copyright_date: 2022
+generator: project
+generator_name: project
+license: MIT
+nix: true
+repo_url: https://github.com/fastapi-mvc/copier-project

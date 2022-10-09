@@ -46,6 +46,31 @@ nix-shell shell.nix
 copier copy "gh:fastapi-mvc/copier-projecty" /path/to/your/new/project
 ```
 
-## License
+## Updating
 
-[MIT](https://github.com/fastapi-mvc/fastapi-mvc/blob/master/LICENSE)
+To update your generator with the changes from the [upstream](https://github.com/fastapi-mvc/copier-generator) run:
+
+```shell
+./update.sh -x README.md
+```
+
+This action will not update/override your template and its configuration, but rather generators common files:
+
+* Environment (`pyproject.toml` and `poetry.lock`)
+* `README.md`
+* Nix expression files
+* dotfiles
+* `LICENSE`
+
+List of excluded files/paths:
+
+* `template/**`
+* `copier.yml`
+* `*.py`
+* `CHANGELOG.md`
+
+Lastly, you can pass extra copier CLI options should you choose:
+
+```shell
+./update.sh -x README.md
+```

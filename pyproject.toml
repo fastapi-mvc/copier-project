@@ -2,7 +2,7 @@
 name = "copier-env"
 version = "0.1.0"
 description = "Copier environment."
-authors = ["Radosław Szamszur <github@rsd.sh>"]
+authors = []
 
 [tool.poetry.dependencies]
 python = "^3.8"

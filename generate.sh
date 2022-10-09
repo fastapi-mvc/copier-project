@@ -1,4 +1,13 @@
-#!/usr/bin/env bash
+#! /usr/bin/env nix-shell
+#! nix-shell shell.nix -i bash
+
+if [ -n "$DEBUG" ]; then
+	set -x
+fi
+
+set -o errexit
+set -o nounset
+set -o pipefail
 
 copier -d project_name=example \
   -d container_image_name=example \

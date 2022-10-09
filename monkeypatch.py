@@ -1,3 +1,5 @@
+#! /usr/bin/env nix-shell
+#! nix-shell -i python3 -p python3
 """https://github.com/fastapi-mvc/cookiecutter/issues/17"""
 import os
 import re

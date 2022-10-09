@@ -52,9 +52,9 @@ jobs:
           name: fastapi-mvc
           authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
       - name: Generate test project
-        run: nix-shell shell.nix --run "./generate.sh"
+        run: ./generate.sh
       - name: Apply monkeypatch
-        run: nix-shell -p python3 --run "python monkeypatch.py example/.github/workflows/main.yml example/.github/workflows/nix.yml example/.github/workflows/docs.yml"
+        run: ./monkeypatch.py example/.github/workflows/main.yml example/.github/workflows/nix.yml example/.github/workflows/docs.yml
       - name: Setup poetry.lock cache
         uses: actions/cache@v3
         id: lock-cache

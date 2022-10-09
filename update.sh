@@ -11,10 +11,10 @@ set -o pipefail
 
 copier -x template/** -x copier.yml.keep -x *.py -x CHANGELOG.md \
   "${@}" \
-  -d generator=controller \
+  -d generator=project \
   -d nix=True \
   -d license=MIT \
-  -d repo_url=https://github.com/fastapi-mvc/copier-controller \
+  -d repo_url=https://github.com/fastapi-mvc/copier-project \
   -d copyright_date=2022 \
   -a .generator.yml \
   update ./.

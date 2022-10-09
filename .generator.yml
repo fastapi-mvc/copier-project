@@ -2,8 +2,8 @@
 _commit: 3c38a44
 _src_path: https://github.com/fastapi-mvc/copier-generator
 copyright_date: 2022
-generator: controller
+generator: project
 generator_name: project
 license: MIT
 nix: true
-repo_url: https://github.com/fastapi-mvc/copier-controller
+repo_url: https://github.com/fastapi-mvc/copier-project

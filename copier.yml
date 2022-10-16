@@ -12,9 +12,6 @@ _envops:
   variable_end_string: "}}"
   variable_start_string: "{{"
 
-_tasks:
-  - "ln -srf CHANGELOG.md docs/CHANGELOG.md "
-
 # TEMPLATE QUESTIONS
 project_name:
   type: str

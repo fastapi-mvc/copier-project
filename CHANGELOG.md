@@ -10,7 +10,6 @@ This file documents changes to [fastapi-mvc/copier-project](https://github.com/f
   * pytest (7.1.3 -> 7.2.0)
   * sphinx (5.2.3 -> 5.3.0)
   * uvicorn (0.18.3 -> 0.19.0)
-  * black (22.8.0 -> 22.10.0)
   * fastapi (0.85.1 -> 0.85.2)
 * Update project GitHub Actions. PR [#6](https://github.com/fastapi-mvc/copier-project/pull/6)
   * cachix/cachix-action (10 -> 12)

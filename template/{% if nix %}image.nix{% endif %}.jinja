@@ -1,5 +1,5 @@
 { pkgs ? import <nixpkgs> { }
-, {{project_name}}
+, app
 , name ? "{{container_image_name}}"
 , tag ? "latest"
 }:
@@ -10,7 +10,7 @@ pkgs.dockerTools.buildImage {
   copyToRoot = pkgs.buildEnv {
     name = "image-root";
     paths = [
-      {{project_name}}
+      app
       pkgs.cacert
       pkgs.tzdata
     ];

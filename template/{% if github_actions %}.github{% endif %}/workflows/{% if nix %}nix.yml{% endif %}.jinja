@@ -33,7 +33,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: cachix/install-nix-action@v17
+      - uses: cachix/install-nix-action@v18
         with:
           nix_path: ${{ env.NIX_CHANNEL }}
       - uses: actions/checkout@v3
@@ -57,7 +57,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Install Nix ❄️
-        uses: cachix/install-nix-action@v17
+        uses: cachix/install-nix-action@v18
         with:
           extra_nix_config: "system-features = nixos-test benchmark big-parallel kvm"
           nix_path: ${{ env.NIX_CHANNEL }}
@@ -65,7 +65,7 @@ jobs:
       # For OpenSource projects there is free 5GB of storage.
       # https://www.cachix.org
       - name: Setup Cachix ❄️
-        uses: cachix/cachix-action@v10
+        uses: cachix/cachix-action@v12
         with:
           name: fastapi-mvc
           authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'

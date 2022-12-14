@@ -68,7 +68,7 @@
               echo "[nix][metrics] Run {{project_name}} open TODO checks."
               flake8 --select=T --statistics --count {{package_name}} tests
               echo "[nix][metrics] Run {{project_name}} black checks."
-              black --check {{package_name}}
+              black -l 80 --check {{package_name}}
             '');
           };
           docs = {

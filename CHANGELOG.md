@@ -2,11 +2,12 @@
 
 This file documents changes to [fastapi-mvc/copier-project](https://github.com/fastapi-mvc/copier-project). The release numbering uses [semantic versioning](http://semver.org).
 
-## Unreleased
+## 0.2.0 (15.12.2022)
 
 ### Features
 
 * Refactor Nix expressions to flake [fastapi-mvc/fastapi-mvc#217](https://github.com/fastapi-mvc/fastapi-mvc/issues/217). PR [#7](https://github.com/fastapi-mvc/copier-project/pull/7)
+* Add support for Python3.11 [fastapi-mvc/fastapi-mvc#199](https://github.com/fastapi-mvc/fastapi-mvc/issues/199). PR [#9](https://github.com/fastapi-mvc/copier-project/pull/9)
 
 ### Docs
 

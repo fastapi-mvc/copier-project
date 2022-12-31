@@ -114,7 +114,7 @@
                   pkgs.coreutils
               ]}"
               echo "[nix][coverage] Run {{project_name}} tests coverage."
-              pytest --cov-config=.coveragerc --cov={{package_name}} --cov-fail-under=90 --cov-report=xml --cov-report=term-missing tests
+              pytest --cov={{package_name}} --cov-fail-under=90 --cov-report=xml --cov-report=term-missing tests
             '');
           };
           test = {

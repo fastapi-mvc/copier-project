@@ -56,3 +56,14 @@ myst-parser = "~0.18.1"
 [build-system]
 requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"
+
+[tool.coverage.run]
+omit = [
+    "{{package_name}}/config/gunicorn.py",
+    "{{package_name}}/__main__.py",
+]
+
+[tool.coverage.report]
+exclude_lines = [
+    "pass",
+]

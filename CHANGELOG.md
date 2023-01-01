@@ -2,6 +2,12 @@
 
 This file documents changes to [fastapi-mvc/copier-project](https://github.com/fastapi-mvc/copier-project). The release numbering uses [semantic versioning](http://semver.org).
 
+## 0.3.0 (01.01.2023)
+
+### Features
+
+* Refactor and improve copier-project tests suite [fastapi-mvc/fastapi-mvc#228](https://github.com/fastapi-mvc/fastapi-mvc/issues/228). PR [#10](https://github.com/fastapi-mvc/copier-project/pull/10)
+
 ## 0.2.0 (15.12.2022)
 
 ### Features

@@ -1,8 +1,8 @@
 { pkgs ? import
     (builtins.fetchTarball {
-      name = "22.05";
-      url = "https://github.com/NixOS/nixpkgs/archive/72783a2d0dbbf030bff1537873dd5b85b3fb332f.tar.gz";
-      sha256 = "1xggh6cim9kxl7nr6fwmsxzqqlnazyddak30xcd4api3f9g3slnz";
+      name = "nixos-22.11";
+      url = "https://github.com/NixOS/nixpkgs/archive/04a75b2eecc0acf6239acf9dd04485ff8d14f425.tar.gz";
+      sha256 = "0gyh0n5sh9sql9jbkz7lc8244k8d9dacrq35224s2c6fq43lnbcg";
     })
     { }
 }:

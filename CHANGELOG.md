@@ -2,6 +2,19 @@
 
 This file documents changes to [fastapi-mvc/copier-project](https://github.com/fastapi-mvc/copier-project). The release numbering uses [semantic versioning](http://semver.org).
 
+## Unreleased
+
+### Internal
+
+* Update project dependencies. PR [#12](https://github.com/fastapi-mvc/copier-project/pull/12)
+  * fastapi (0.80.0 -> 0.89.1)
+  * pytest (7.2.0 -> 7.2.1)
+  * black (22.8.0 -> 23.1.0)
+  * requests (2.28.1 -> 2.28.2)
+  * httpx (0.23.1 -> 0.23.3)
+* Update project GitHub Actions. PR [#12](https://github.com/fastapi-mvc/copier-project/pull/12)
+  * fkirc/skip-duplicate-actions (5.2.0 -> 5.3.0)
+
 ## 0.3.0 (01.01.2023)
 
 ### Features

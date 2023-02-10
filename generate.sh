@@ -1,5 +1,4 @@
-#! /usr/bin/env nix-shell
-#! nix-shell shell.nix -i bash
+#!/usr/bin/env bash
 
 if [ -n "$DEBUG" ]; then
 	set -x

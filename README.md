@@ -42,8 +42,8 @@ copier copy "gh:fastapi-mvc/copier-projecty" /path/to/your/new/project
 ## Using Nix
 
 ```shell
-nix-shell shell.nix
-copier copy "gh:fastapi-mvc/copier-projecty" /path/to/your/new/project
+nix develop
+copier copy "gh:fastapi-mvc/copier-project" /path/to/your/new/project
 ```
 
 ## Updating
@@ -56,9 +56,8 @@ To update your generator with the changes from the [upstream](https://github.com
 
 This action will not update/override your template and its configuration, but rather generators common files:
 
-* Environment (`pyproject.toml` and `poetry.lock`)
-* `README.md`
 * Nix expression files
+* `README.md`
 * dotfiles
 * `LICENSE`
 
@@ -72,5 +71,7 @@ List of excluded files/paths:
 Lastly, you can pass extra copier CLI options should you choose:
 
 ```shell
-./update.sh -x README.md
+./update.sh -x README.md --vcs-ref=custom_branch
+# Or
+nix run .#update -- -x README.md --vcs-ref=custom_branch
 ```

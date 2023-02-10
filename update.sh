@@ -1,5 +1,4 @@
-#! /usr/bin/env nix-shell
-#! nix-shell shell.nix -i bash
+#!/usr/bin/env bash
 
 if [ -n "$DEBUG" ]; then
 	set -x
@@ -9,8 +8,8 @@ set -o errexit
 set -o nounset
 set -o pipefail
 
-copier -x template/** -x copier.yml.keep -x *.py -x CHANGELOG.md \
-  "${@}" \
+copier -x template/** -x copier.yml -x *.py -x CHANGELOG.md \
+  "$@" \
   -d generator=project \
   -d nix=True \
   -d license=MIT \

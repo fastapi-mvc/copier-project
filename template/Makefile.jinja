@@ -37,7 +37,7 @@ image:  ## Build {{container_image_name}} image
 .PHONY: metrics
 metrics: install ## Run {{project_name}} metrics checks
 	echo "[metrics] Run {{project_name}} PEP 8 checks."
-	${POETRY_BINARY} run flake8 --select=E,W,I --max-line-length 80 --import-order-style pep8 --statistics --count {{package_name}}
+	${POETRY_BINARY} run flake8 --select=E,W,I --max-line-length 88 --import-order-style pep8 --statistics --count {{package_name}}
 	echo "[metrics] Run {{project_name}} PEP 257 checks."
 	${POETRY_BINARY} run flake8 --select=D --ignore D301 --statistics --count {{package_name}}
 	echo "[metrics] Run {{project_name}} pyflakes checks."
@@ -47,7 +47,7 @@ metrics: install ## Run {{project_name}} metrics checks
 	echo "[metrics] Run {{project_name}} open TODO checks."
 	${POETRY_BINARY} run flake8 --select=T --statistics --count {{package_name}} tests
 	echo "[metrics] Run {{project_name}} black checks."
-	${POETRY_BINARY} run black -l 80 --check {{package_name}}
+	${POETRY_BINARY} run black --check {{package_name}}
 
 .PHONY: unit-test
 unit-test: install ## Run {{project_name}} unit tests

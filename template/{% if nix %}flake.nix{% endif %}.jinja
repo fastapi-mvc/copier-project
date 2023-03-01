@@ -68,7 +68,7 @@
               echo "[nix][metrics] Run {{project_name}} open TODO checks."
               flake8 --select=T --statistics --count {{package_name}} tests
               echo "[nix][metrics] Run {{project_name}} black checks."
-              black -l 80 --check {{package_name}}
+              black --check {{package_name}}
             '');
           };
           docs = {
@@ -115,6 +115,17 @@
               ]}"
               echo "[nix][coverage] Run {{project_name}} tests coverage."
               pytest --cov={{package_name}} --cov-fail-under=90 --cov-report=xml --cov-report=term-missing tests
+            '');
+          };
+          mypy = {
+            type = "app";
+            program = toString (pkgs.writeScript "mypy" ''
+              export PATH="${pkgs.lib.makeBinPath [
+                  pkgs.{{project_name}}-dev
+                  pkgs.git
+              ]}"
+              echo "[nix][mypy] Run {{project_name}} mypy checks."
+              mypy {{package_name}}
             '');
           };
           test = {

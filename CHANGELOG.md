@@ -2,7 +2,15 @@
 
 This file documents changes to [fastapi-mvc/copier-project](https://github.com/fastapi-mvc/copier-project). The release numbering uses [semantic versioning](http://semver.org).
 
-## Unreleased
+## 0.5.0 (01.03.2023)
+
+### Fixed
+
+* Typo in cache key in templated main.yml workflow [86e8e28](https://github.com/fastapi-mvc/copier-project/pull/17/commits/86e8e28c2af81ecbcda14e0ce2a50b624bc28e8d).
+
+### Features
+
+* Add type checking [fastapi-mvc/fastapi-mvc#178](https://github.com/fastapi-mvc/fastapi-mvc/issues/178). PR [#17](https://github.com/fastapi-mvc/copier-project/pull/17)
 
 ### Internal
 
@@ -16,6 +24,7 @@ This file documents changes to [fastapi-mvc/copier-project](https://github.com/f
   * Bump flake8-docstrings from 1.6.0 to 1.7.0.
   * Bump aiohttp from 3.8.3 to 3.8.4.
 * Bump cachix/install-nix-action from 18 to 20 [b4e1ef0](https://github.com/fastapi-mvc/copier-project/commit/b4e1ef0740cb1362daa83dc153d1349d71ecb62d).
+* Add development dependency - fastapi-mvc [09f7468](https://github.com/fastapi-mvc/copier-project/commit/09f7468d95fffd9256e9dfc6ecd36baea4aa65b8).
 
 ## 0.4.0 (07.02.2023)
 

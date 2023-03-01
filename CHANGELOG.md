@@ -6,6 +6,8 @@ This file documents changes to [fastapi-mvc/copier-project](https://github.com/f
 
 ### Internal
 
+* Pin nix version in nix-install-action in templated nix workflow [6b4a13c](https://github.com/fastapi-mvc/copier-project/commit/6b4a13ca08b2590a6003ab46a5ef27ac1b139341).
+* Pin nix version in nix-install-action [8106966](https://github.com/fastapi-mvc/copier-project/commit/8106966aaaf40bdcee76079e4a4842128148dcbb).
 * Update generator with changes from [copier-generator](https://github.com/fastapi-mvc/copier-generator) 0.2.0 release. PR [#14](https://github.com/fastapi-mvc/copier-project/pull/14)
 
 ## 0.4.0 (07.02.2023)

@@ -9,6 +9,12 @@ This file documents changes to [fastapi-mvc/copier-project](https://github.com/f
 * Pin nix version in nix-install-action in templated nix workflow [6b4a13c](https://github.com/fastapi-mvc/copier-project/commit/6b4a13ca08b2590a6003ab46a5ef27ac1b139341).
 * Pin nix version in nix-install-action [8106966](https://github.com/fastapi-mvc/copier-project/commit/8106966aaaf40bdcee76079e4a4842128148dcbb).
 * Update generator with changes from [copier-generator](https://github.com/fastapi-mvc/copier-generator) 0.2.0 release. PR [#14](https://github.com/fastapi-mvc/copier-project/pull/14)
+* Update project dependencies. PR [#16](https://github.com/fastapi-mvc/copier-project/pull/16)
+  * Bump fastapi from 0.89.1 to 0.92.0.
+  * Bump myst-parser from 0.18.1 to 0.19.0.
+  * Bump redis from 4.4.2 to 4.5.1.
+  * Bump flake8-docstrings from 1.6.0 to 1.7.0.
+  * Bump aiohttp from 3.8.3 to 3.8.4.
 
 ## 0.4.0 (07.02.2023)
 

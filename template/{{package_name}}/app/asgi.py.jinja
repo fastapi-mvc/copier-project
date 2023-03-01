@@ -20,7 +20,7 @@ from {{package_name}}.app.exceptions import (
 log = logging.getLogger(__name__)
 
 
-async def on_startup():
+async def on_startup() -> None:
     """Define FastAPI startup event handler.
 
     Resources:
@@ -43,7 +43,7 @@ async def on_startup():
     {%- endif %}
 
 
-async def on_shutdown():
+async def on_shutdown() -> None:
     """Define FastAPI shutdown event handler.
 
     Resources:
@@ -67,7 +67,7 @@ async def on_shutdown():
     {%- endif %}
 
 
-def get_application():
+def get_application() -> FastAPI:
     """Initialize FastAPI application.
 
     Returns:

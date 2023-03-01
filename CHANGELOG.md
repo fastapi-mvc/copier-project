@@ -15,6 +15,7 @@ This file documents changes to [fastapi-mvc/copier-project](https://github.com/f
   * Bump redis from 4.4.2 to 4.5.1.
   * Bump flake8-docstrings from 1.6.0 to 1.7.0.
   * Bump aiohttp from 3.8.3 to 3.8.4.
+* Bump cachix/install-nix-action from 18 to 20 [b4e1ef0](https://github.com/fastapi-mvc/copier-project/commit/b4e1ef0740cb1362daa83dc153d1349d71ecb62d).
 
 ## 0.4.0 (07.02.2023)
 

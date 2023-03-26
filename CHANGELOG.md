@@ -2,6 +2,17 @@
 
 This file documents changes to [fastapi-mvc/copier-project](https://github.com/fastapi-mvc/copier-project). The release numbering uses [semantic versioning](http://semver.org).
 
+## Unreleased
+
+### Features
+
+* Refactor templated `flake.nix` using [flake-parts](https://github.com/hercules-ci/flake-parts). PR [#19](https://github.com/fastapi-mvc/copier-project/pull/19)
+* Template workflow for updating Nix flake inputs. PR [#19](https://github.com/fastapi-mvc/copier-project/pull/19)
+
+### Internal
+
+* Update generator with changes from [copier-generator](https://github.com/fastapi-mvc/copier-generator) 0.4.1 release. PR [#18](https://github.com/fastapi-mvc/copier-project/pull/18)
+
 ## 0.5.0 (01.03.2023)
 
 ### Fixed

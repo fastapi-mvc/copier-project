@@ -51,7 +51,6 @@
               pkgs.callPackage ./default.nix {
                 inherit python;
                 poetry2nix = pkgs.poetry2nix;
-                git = pkgs.git;
               };
           in
           {
@@ -76,7 +75,7 @@
         };
 
         apps = {
-          {{project_name}} = flake-utils.lib.mkApp { drv = config.packages; };
+          {{project_name}} = mkApp { drv = config.packages; };
           metrics = {
             type = "app";
             program = toString (pkgs.writeScript "metrics" ''
@@ -158,8 +157,8 @@
           test = {
             type = "app";
             program = toString (pkgs.writeScript "test" ''
-              ${apps.unit-test.program}
-              ${apps.integration-test.program}
+              ${config.apps.unit-test.program}
+              ${config.apps.integration-test.program}
             '');
           };
         };

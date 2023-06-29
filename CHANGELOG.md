@@ -2,6 +2,26 @@
 
 This file documents changes to [fastapi-mvc/copier-project](https://github.com/fastapi-mvc/copier-project). The release numbering uses [semantic versioning](http://semver.org).
 
+## Unreleased
+
+### Internal
+
+* Update flake nixpkgs to 23.05. PR [#27](https://github.com/fastapi-mvc/copier-project/pull/27)
+* Bump project dependencies. PR [#27](https://github.com/fastapi-mvc/copier-project/pull/27)
+  * Bump fastapi from 0.92.0 to 0.98.0
+  * Bump uvicorn from 0.20.0 to 0.22.0
+  * Bump myst-parser from 0.19.0 to 1.0.0
+  * Bump pytest from 7.2.1 to 7.4.0
+  * Bump pytest-asyncio from 0.20.3 to 0.21.0
+  * Bump black from 23.1.0 to 23.3.0
+  * Bump redis from 4.5.4 to 4.5.5
+  * Bump mypy from 1.0.1 to 1.4.1
+* Bump poetry2nix from 1.40.1 to 1.42.0. PR [#26](https://github.com/fastapi-mvc/copier-project/pull/26)
+* Update project GitHub Actions. PR [#25](https://github.com/fastapi-mvc/copier-project/pull/25)
+  * Bump cachix/install-nix-action from 20 to 22
+  * Bump DeterminateSystems/nix-installer-action from 1 to 4
+  * Bump DeterminateSystems/update-flake-lock from 17 to 19
+
 ## 0.6.0 (26.03.2023)
 
 ### Features
